@@ -1,11 +1,11 @@
 module GetData
   module Default
     class UsersController < ApplicationController
+      include ::ResolveLimit
+
       def index
-        @users = User.all
-        # render json: { data: @users }, status: :ok
+        @users = User.first(resolve_limit)
       end
     end
   end
 end
-
