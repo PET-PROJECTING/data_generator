@@ -7,7 +7,7 @@ module GetData
 
       def index
         @users = User.with_selected_fields(resolve_fields).first(resolve_limit)
-        render_json_response(data: @users, model: User)
+        render_default_json_response(data: @users, model: User)
       end
     end
   end
